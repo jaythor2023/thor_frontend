@@ -4,37 +4,42 @@ export default function Booking() {
   const [formData, setFormData] = useState({ name: "", phone: "", date: "" });
   const [loading, setLoading] = useState(false);
 
-  // Update form data on input change
-  const handleChange = (e) => {
-    setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
-  };
+// Handle form submit
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-  // Handle form submit
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  try {
+    // Step 1: Ping the backend to wake it up
+    await fetch("https://thor-server-2.onrender.com/api/ping").catch(() => {
+      console.log("Ping failed but continuing to booking...");
+    });
 
-    try {
-      const res = await fetch("https://thor-server-2.onrender.com/api/bookings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    // Step 2: Wait a short delay to allow warm-up (1.5 seconds)
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      const data = await res.json();
+    // Step 3: Make the actual booking request
+    const res = await fetch("https://thor-server-2.onrender.com/api/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-      if (res.ok) {
-        alert("✅ Appointment successfully booked!");
-        setFormData({ name: "", phone: "", date: "" });
-      } else {
-        alert("❌ Booking failed: " + (data.error || "Unknown error"));
-      }
-    } catch (err) {
-      alert("❌ Network error: " + err.message);
-    } finally {
-      setLoading(false);
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("✅ Appointment successfully booked!");
+      setFormData({ name: "", phone: "", date: "" });
+    } else {
+      alert("❌ Booking failed: " + (data.error || "Unknown error"));
     }
-  };
+  } catch (err) {
+    alert("❌ Network error: " + err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue text-white font-sans">
