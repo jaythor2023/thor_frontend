@@ -27,7 +27,7 @@ export default function AdminAppointments() {
   const fetchBookings = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/bookings");
+      const res = await fetch("https://thor-server-2.onrender.com/api/bookings");
       if (!res.ok) throw new Error("Failed to fetch bookings");
       const data = await res.json();
       setBookings(data);
