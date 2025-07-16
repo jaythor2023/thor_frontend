@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import "../index.css";
 // import { styleText } from "util";
 
 export default function Navbar() {
@@ -14,17 +15,17 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">
+    <nav className="bg-gray-200 text-white font-sans tracking-wide px-6 py-4 shadow-md">
       <div className="flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex items-center gap-2">
           <img src={logo} alt="Thor Fitness" className="h-10 w-auto" />
-          <span className="text-xl font-bold text-blue-300">Thor Fitness</span>
+          <span className="text-xl font-bold text-blue-500">Thor Fitness</span>
         </div>
 
         {/* Mobile hamburger icon */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden bg-white text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
@@ -39,6 +40,7 @@ export default function Navbar() {
             Gallery
           </Link>
           <button
+            id="navbutton"
             onClick={scrollToContact}
             className="text-blue-500 font-semibold text-lg hover:text-blue-400 transition"
           >
