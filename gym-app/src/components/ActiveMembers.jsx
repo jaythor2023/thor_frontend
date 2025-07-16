@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 
 // Import your 4 images
-import img1 from "../assets/work.jpg";
-import img2 from "../assets/out.jpg";
-import img3 from "../assets/tt.jpg";
+import thorcross from "../assets/thorcross.jpeg";
+import thorcardio from "../assets/thorcardio.jpeg";
+import thorbar from "../assets/thorbar.jpeg";
 import img4 from "../assets/ii.jpg";
 
-const images = [img1, img2, img3, img4];
+const images = [thorcross, thorcardio, thorbar, img4];
 
 export default function ActiveMembers() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -15,14 +15,14 @@ export default function ActiveMembers() {
   const [contentHeight, setContentHeight] = useState("auto");
 
   const comments = [
-    { id: 1, name: "Alice", comment: "Thor Fitness changed my life! The trainers are amazing and supportive." },
-    { id: 2, name: "Bob", comment: "Love the variety of training options and the cleanliness here." },
-    { id: 3, name: "Clara", comment: "Great gym hours, I can train early mornings and late nights!" },
-    { id: 4, name: "Vlara", comment: "Highly motivating environment, especially during group sessions." },
-    { id: 5, name: "John", comment: "Friendly staff and quality equipment — what more can you ask for?" },
-    { id: 6, name: "Maya", comment: "I feel stronger every week, all thanks to my trainer!" },
-    { id: 7, name: "Zoe", comment: "Finally found a gym that fits my schedule and my needs." },
-    { id: 8, name: "Mike", comment: "Affordable memberships and great atmosphere." },
+    { id: 1, name: "Deepak Patil", comment: "This gym provides a great workout experience with a clean, well-maintained facility and a positive, supportive atmosphere. The equipments are good and the trainers are knowledgeable, ensuring a safe and effective training environment. Overall, frienndly Owner, staff and value added trainers with a fantastic gym that motivates you to achieve your fitness goals." },
+    { id: 2, name: "Ananya Agrawal", comment: "Amazon amazing staff and work ethics. Their equipment is top notch! Would definitely recommend going there, especially women as their environment is pretty good." },
+    { id: 3, name: "Shubham singh", comment: "There are altogether 4 trainers on the floor to help you all the time. Trainers are polite and ready to help and also free counselling sessions are held onece in two weeks that to one on one with the dietician.And they have a whole floor for weight Training and another floor for cross fit which was kind of unexpected because of the fee structure.Gym is damn good u should visit one!!" },
+    { id: 4, name: "Sanket Deore", comment: "It's been more than 6 months I've been working out here. Based on my past experiences in other gyms I would like to say that this gym is a value for money if you want to make it so!Trainers are good, supportive and always motivational for each and every set you workout. Moreover there is Crossfit which is a unique plus point in this gym. I can do calisthenics exercises using the place provided.All in all it is value for money if you are passionate, deterministic and dedicated to your workout." },
+    { id: 5, name: "Sandesh Kolhapure", comment: "Best GYM you can find in Nashik 😁 They have 6 trainer and Cross fit trainer. Very clean gym and big too ✌️." },
+    { id: 6, name: "Pranav Deshpande", comment: "Best gym in the area. Huge floor area, brand new equipments covering all exercises for each muscle.Seperate spacious rooms for change for both gents and ladies.Brilliant sound system and a live environment with fresh lights all over the place." },
+    { id: 7, name: "Bhagirath Choudhary", comment: "absolutely love the gym!!! The trainers are INCREDIBLY knowledgeable and have helped me achieve some pretty amazing results. They are always there to answer any questions I have and provide me not only with AMAZING workout plans but also with recipes of home-prepared balanced diets.It's the perfect place to get fit and have fun." },
+    { id: 8, name: "Adwait Joshi", comment: "I absolutely love the gym!!! The trainers are INCREDIBLY knowledgeable and have helped me achieve some pretty amazing results. They are always there to answer any questions I have and provide me not only with AMAZING workout plans but also with recipes of home-prepared balanced diets.The other members are also really MOTIVATING and friendly. Everyone is there to work hard and push each other to do our best. It's like being part of a big fitness family.😄Some of my favorite FEATURES are the powerful air conditioning and music system. It definitely adds to the overall experience and makes my workouts even more enjoyable. Whether I'm lifting weights or doing cardio, the music really drives me to go harder and faster. The air-conditioner helps a lot in keeping the temperature optimum for the workout.Overall, I can't RECOMMEND this gym enough! It's the perfect place to get fit and have fun." },
   ];
 
   // Rotate image every 20s
