@@ -4,6 +4,9 @@ export default function Booking() {
   const [formData, setFormData] = useState({ name: "", phone: "", date: "" });
   const [loading, setLoading] = useState(false);
 
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
 // Handle form submit
 const handleSubmit = async (e) => {
   e.preventDefault();
