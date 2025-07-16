@@ -58,7 +58,3 @@ app.get("/api/bookings", (req, res) => {
   res.json(bookings);
 });
 
-// // Start server
-// app.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
